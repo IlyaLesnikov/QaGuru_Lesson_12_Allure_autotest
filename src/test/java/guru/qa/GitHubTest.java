@@ -2,10 +2,8 @@ package guru.qa;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Description;
-import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
@@ -17,6 +15,7 @@ public class GitHubTest {
     @Description("Проверка наименования Issue в репозитории через лямба степы")
     protected void checkingTheIssueNameInTheRepositoryLambdaStepsTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
+
         step("Открываем главную страницу", () -> open("https://github.com/"));
         step("Открываем строку поиска и вводим название репозитория", () -> {
             $("[data-target='qbsearch-input.inputButtonText']").click();
@@ -33,6 +32,7 @@ public class GitHubTest {
     protected void checkingTheIssueNameInTheRepositoryAllureStepsTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         Steps steps = new Steps();
+
         steps.openWebSite();
         steps.openTheFirstRepository();
         steps.openTabIssue();
