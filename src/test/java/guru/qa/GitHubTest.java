@@ -34,9 +34,10 @@ public class GitHubTest {
         Steps steps = new Steps();
 
         steps.openWebSite();
+        steps.openTheSearchBarAndEnterTheNameOfTheRepository(REPOSITORY_NAME);
         steps.openTheFirstRepository();
         steps.openTabIssue();
-        steps.checkingTheIssueName(REPOSITORY_NAME);
+        steps.checkingTheIssueName(ISSUE_NAME);
     }
     @Test
     @Description("Проверка наименования Issue в репозитории через селенид степы")
